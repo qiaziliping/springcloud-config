@@ -26,4 +26,4 @@ eureka:
       DEFAULT_URL: http://localhost:8761/eureka/  # 想eureka-server注册
 
 server:
-  port: 8763
+  port: 8762
