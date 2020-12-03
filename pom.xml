@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.qgg</groupId>
+    <artifactId>springcloud-config</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>config-server</module>
+        <module>config-client</module>
+        <module>eureka-server</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+        <!--<version>1.5.2.RELEASE</version>-->
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <spring-could.version>Finchley.SR3</spring-could.version>
+        <!--<spring-could.version>Dalston.SR1</spring-could.version>-->
+        <java.version>1.8</java.version>
+        <p.version>1.4.3.RELEASE</p.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-could.version}</version>
+                <type>pom</type>
+                <scope>import</scope>  <!-- 开启import，子项目可以继承父项目中的依赖版本-->
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+
+</project>

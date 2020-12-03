@@ -1,0 +1,37 @@
+# 读取本地配置文件demo---------------------------------------
+#spring:
+#  application:
+#    name: config-server # 服务名称
+#  profiles:
+#    active: native # 配置config server从本地读取配置
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/shared # 读取配置的路径为classpath下的shared目录
+#server:
+#  port: 8769  #服务端口
+
+# 从远程GIT仓库读取配置文件demo-----------------------------
+
+server:
+  port: 8768
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/qiaziliping/qz_document.git # uri是远程git仓库地址
+          search-paths: config  # serach-path是仓库文件夹地址
+          username: 597721793@qq.com # github用户名，公开的仓库也要有password这个属性，值为空即可
+          password:
+        default-label: main #分支名称
+
+#  -- 在构建高可用config server的demo中用到
+eureka:
+  client:
+    service-url:
+      DEFAULT_URL: http://localhost:8761/eureka/

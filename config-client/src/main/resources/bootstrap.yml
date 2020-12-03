@@ -1,0 +1,19 @@
+# bootstrap.yml 在application.yml之前加载
+#spring:
+#  cloud:
+#    config:
+#      uri: http://localhost:8769 # 向Url地址为http://localhost:8769的 Config Server读取配置文件
+#      fail-fast: true # 如果没有读取成功，则快速失败
+#  profiles:
+#    active: dev
+
+# -- 在构建高可用config server的demo中用到
+spring:
+  cloud:
+    config:
+      fail-fast: true  # 如果没有读取成功，则快速失败
+      discovery:       # 配置服务发现
+        enabled: true
+        service-id: config-server  # 向service-id为config-server的配置服务读取配置文件
+  profiles:
+    active: dev    # 读取配置开发环境dev的文件

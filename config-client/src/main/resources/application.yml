@@ -1,0 +1,29 @@
+# bootstrap.yml 在application.yml之前加载
+spring:
+  application:
+    name: config-client # 服务名
+  rabbitmq:             # rabbitmq相关配置
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:     # 屏蔽安全验证，不然访问不了/bus/refresh接口，就刷新不了
+#  security:
+#    enabled: false  #  如果是SpringBoot1.5.x的版本，那么配置改成management.security.enabled=false即可。
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh  # SpringBoot2.x,配置exposure.include
+#        include: refresh,health,info # 打开部分
+#      base-path: /  # 默认是/actuator 前缀，可以在这里修改
+
+
+
+#  -- 在构建高可用config server的demo中用到
+eureka:
+  client:
+    service-url:
+      DEFAULT_URL: http://localhost:8761/eureka/  # 想eureka-server注册
+
+server:
+  port: 8763

@@ -1,0 +1,6 @@
+server:
+  port: 8763  # config-client服务需要读取的端口
+
+qia: 测试-version 1  # 测试的属性以及值
+
+
